@@ -1,17 +1,15 @@
 package hcmute.edu.vn.busmapute_14new;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+
 import android.os.Bundle;
 
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
 
     BottomNavigationView navView;
-    HomeFragment homeFragment = new HomeFragment();
-    SearchFragment searchFragment = new SearchFragment();
+    MapFragment mapFragment = new MapFragment();
     AboutFragment aboutFragment = new AboutFragment();
 
     @Override
@@ -20,16 +18,12 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         navView = findViewById(R.id.bottomNavView);
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, homeFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, mapFragment).commit();
 
         navView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
-                case R.id.home:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, homeFragment).commit();
-                    break;
-
-                case R.id.search:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, searchFragment).commit();
+                case R.id.map:
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, mapFragment).commit();
                     break;
 
                 case R.id.about:
