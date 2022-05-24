@@ -38,7 +38,6 @@ import java.util.Arrays;
 public class MapFragment extends Fragment {
 
     public static final String TAG = "MAPS: ";
-    ImageView search;
     private FusedLocationProviderClient client;
     private SupportMapFragment supportMapFragment;
 
