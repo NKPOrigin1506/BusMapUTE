@@ -2,6 +2,7 @@ package hcmute.edu.vn.busmapute_14new;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -12,6 +13,7 @@ public class HomeActivity extends AppCompatActivity {
     MapFragment mapFragment = new MapFragment();
     AboutFragment aboutFragment = new AboutFragment();
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

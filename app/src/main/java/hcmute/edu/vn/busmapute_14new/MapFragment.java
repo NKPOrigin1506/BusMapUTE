@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
@@ -42,16 +41,16 @@ public class MapFragment extends Fragment {
     private SupportMapFragment supportMapFragment;
 
     @Override
+    @NonNull
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_map, container, false);
 
-        if(!Places.isInitialized()){
-            Places.initialize(getActivity(),"AIzaSyAk2bxKJMlHto5PCM3Tputog2N4-gH1Gok");
-        }
+        if(!Places.isInitialized())
+            Places.initialize(requireActivity(), "AIzaSyAk2bxKJMlHto5PCM3Tputog2N4-gH1Gok");
 
-        PlacesClient placesClient = Places.createClient(getActivity());
+        PlacesClient placesClient = Places.createClient(requireActivity());
 
         AutocompleteSupportFragment autocompleteSupportFragment = (AutocompleteSupportFragment)
                 getChildFragmentManager().findFragmentById(R.id.autoComplete);
@@ -64,12 +63,12 @@ public class MapFragment extends Fragment {
         ));
         autocompleteSupportFragment.setCountries("VN");
 
-        autocompleteSupportFragment.setPlaceFields(Arrays.asList(Place.Field.ID,Place.Field.NAME));
+        autocompleteSupportFragment.setPlaceFields(Arrays.asList(Place.Field.ID,Place.Field.NAME,Place.Field.ADDRESS));
 
         autocompleteSupportFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onError(@NonNull Status status) {
-                Log.i(TAG, "An error occured: " + status);
+                Log.i(TAG, "An error occurred: " + status);
             }
 
             @Override
@@ -79,12 +78,12 @@ public class MapFragment extends Fragment {
         });
 
         // Initialize location client:
-        client = LocationServices.getFusedLocationProviderClient(getActivity());
+        client = LocationServices.getFusedLocationProviderClient(requireActivity());
 
-        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+        if (ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
             getCurrentLocation();
         }else{
-            ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.ACCESS_FINE_LOCATION},44);
+            ActivityCompat.requestPermissions(requireActivity(),new String[]{Manifest.permission.ACCESS_FINE_LOCATION},44);
         }
 
         // Initialize map fragment
@@ -96,8 +95,8 @@ public class MapFragment extends Fragment {
     }
 
     private void getCurrentLocation() {
-        if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
