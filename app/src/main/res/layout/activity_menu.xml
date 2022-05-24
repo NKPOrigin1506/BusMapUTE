@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MenuActivity"
-    android:background="#B8F1B0">
+    android:background="@color/neon_light_green">
 
     <ImageView
         android:id="@+id/imageView"
@@ -22,7 +22,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="25dp"
         android:textColor="@color/black"
         android:text="@string/ute_bus_map"
         android:textSize="30sp"
@@ -35,7 +35,7 @@
         android:id="@+id/btnMap"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/rounded_corner_button"
         android:text="Go to Maps"
         android:textSize="18sp"
