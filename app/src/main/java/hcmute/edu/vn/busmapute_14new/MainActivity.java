@@ -1,8 +1,6 @@
 package hcmute.edu.vn.busmapute_14new;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
@@ -12,8 +10,6 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -32,7 +28,7 @@ import java.util.Arrays;
 
 public class MainActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    GoogleMap mMap;
+    public GoogleMap mMap;
     public static final String TAG = "MAPS: ";
 
     @Override
@@ -73,6 +69,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         // Initialize map fragment
         SupportMapFragment supportMapFragment = (SupportMapFragment)
                 getSupportFragmentManager().findFragmentById(R.id.map);
+        supportMapFragment.getMapAsync(this);
     }
 
     @Override
