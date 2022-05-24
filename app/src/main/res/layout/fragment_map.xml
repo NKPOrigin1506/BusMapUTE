@@ -18,13 +18,12 @@
         android:id="@+id/btn_search"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_alignBottom="@id/map"
+        android:layout_alignParentRight="true"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="70dp"
         android:background="@drawable/rounded_corner_button"
-        android:src="@drawable/ic_search"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_alignBottom="@id/map"
-        android:layout_alignParentRight="true"/>
+        android:onClick="startAutoCompleteActivity"
+        android:src="@drawable/ic_search"/>
 
 </RelativeLayout>

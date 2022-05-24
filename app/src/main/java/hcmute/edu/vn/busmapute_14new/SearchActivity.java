@@ -38,8 +38,9 @@ public class SearchActivity extends AppCompatActivity {
         autocompleteSupportFragment.setTypeFilter(TypeFilter.ADDRESS);
 
         autocompleteSupportFragment.setLocationBias(RectangularBounds.newInstance(
-                new LatLng(10.762622, 106.660172),
-                new LatLng(10.84994,106.771688)));
+                new LatLng(10.762622,106.660172),
+                new LatLng(10.762622,106.660172)
+        ));
         autocompleteSupportFragment.setCountries("VN");
 
         autocompleteSupportFragment.setPlaceFields(Arrays.asList(Place.Field.ID,Place.Field.NAME));

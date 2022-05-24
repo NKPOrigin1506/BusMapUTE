@@ -13,7 +13,7 @@
         android:layout_marginLeft="6dp"
         android:layout_marginTop="6dp">
 
-        <fragment
+        <androidx.fragment.app.FragmentContainerView
             android:id="@+id/autoComplete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
