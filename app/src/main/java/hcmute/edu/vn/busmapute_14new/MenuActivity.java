@@ -34,7 +34,7 @@ public class MenuActivity extends AppCompatActivity {
         about.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"Created by\nNguyen Kha Phuong - 18110039\nPham Nguyen Hoang Duy - 18110008",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"A Mobile App Project created by Group 14\nNguyen Kha Phuong - 18110039\nPham Nguyen Hoang Duy - 18110008",Toast.LENGTH_LONG).show();
             }
         });
 
