@@ -1,6 +1,7 @@
 package hcmute.edu.vn.busmapute_14new;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
@@ -35,6 +36,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         if (!Places.isInitialized())
             Places.initialize(getApplicationContext(), "AIzaSyAk2bxKJMlHto5PCM3Tputog2N4-gH1Gok");
