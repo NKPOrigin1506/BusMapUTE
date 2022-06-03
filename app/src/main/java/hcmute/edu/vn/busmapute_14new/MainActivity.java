@@ -89,7 +89,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             return;
         }
         mMap.setMyLocationEnabled(true);
-        mMap.getUiSettings().setZoomControlsEnabled(true);
         LatLng latLng = new LatLng(10.851245254192401, 106.77184408706373);
         MarkerOptions markerOptions = new MarkerOptions().position(latLng).title("You are here");
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,15));

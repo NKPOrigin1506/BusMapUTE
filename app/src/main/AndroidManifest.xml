@@ -34,7 +34,7 @@
             android:value="AIzaSyAk2bxKJMlHto5PCM3Tputog2N4-gH1Gok" />
         <meta-data
             android:name="com.google.android.gms.version"
-            android:exported="true" />
+            android:value="@integer/google_play_services_version" />
 
         <activity
             android:name=".MenuActivity"
