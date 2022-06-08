@@ -52,11 +52,20 @@ public class MainActivity extends FragmentActivity {
         routes = (Button) findViewById(R.id.btnBusRoutes);
         search = (Button) findViewById(R.id.btnSearchLocation);
 
-        // click listener for viewing Bus Routes:
+        // click listener for 'Bus Routes' button:
         routes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, BusRoutesActivity.class);
+                startActivity(i);
+            }
+        });
+
+        // click listener for 'Search Location' button:
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, SearchActivity.class);
                 startActivity(i);
             }
         });
@@ -98,10 +107,10 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-        if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+        if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             getCurrentLocation();
-        }else{
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},44);
+        } else {
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
         }
 
     }
@@ -127,6 +136,18 @@ public class MainActivity extends FragmentActivity {
                     supportMapFragment.getMapAsync(new OnMapReadyCallback() {
                         @Override
                         public void onMapReady(@NonNull GoogleMap googleMap) {
+                            if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                                    && ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                                // TODO: Consider calling
+                                //    ActivityCompat#requestPermissions
+                                // here to request the missing permissions, and then overriding
+                                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                                //                                          int[] grantResults)
+                                // to handle the case where the user grants the permission. See the documentation
+                                // for ActivityCompat#requestPermissions for more details.
+                                return;
+                            }
+                            googleMap.setMyLocationEnabled(true);
                             LatLng latLng = new LatLng(location.getLatitude(),location.getLongitude());
                             MarkerOptions markerOptions = new MarkerOptions().position(latLng).title("You are here");
                             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,20));
