@@ -40,7 +40,7 @@ import java.util.Arrays;
 public class MainActivity extends FragmentActivity {
 
     Button routes, search;
-    FusedLocationProviderClient client;
+    private FusedLocationProviderClient client;
     SupportMapFragment supportMapFragment;
 
     @Override
@@ -89,7 +89,7 @@ public class MainActivity extends FragmentActivity {
 
         autocompleteSupportFragment.setLocationBias(RectangularBounds.newInstance(
                 new LatLng(10.762622, 106.660172),
-                new LatLng(10.762622, 106.660172)
+                new LatLng(21.028511, 105.804817)
         ));
         autocompleteSupportFragment.setCountries("VN");
 

@@ -1,8 +1,10 @@
 package hcmute.edu.vn.busmapute_14new;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -12,5 +14,16 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
 
         getSupportActionBar().setTitle("Search Location");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+    // this event will enable the back function to the button on press
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
