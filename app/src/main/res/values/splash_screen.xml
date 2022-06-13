@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/neon_light_green</item>
+        <item name="windowSplashScreenBackground">@color/white</item>
         <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_busmap</item>
-        <item name="windowSplashScreenAnimationDuration">200</item> #required for animated icons
         <item name="postSplashScreenTheme">@style/Theme.BusMapUTE_14New</item> #required
     </style>
 </resources>

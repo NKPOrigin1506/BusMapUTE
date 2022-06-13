@@ -9,6 +9,5 @@
     android:textSize="26sp"
     android:textColor="@color/neon_green"
     android:textStyle="bold"
-    android:background="@color/neon_light_green"
     android:layout_margin="5dp"
     android:padding="40dp"/>
