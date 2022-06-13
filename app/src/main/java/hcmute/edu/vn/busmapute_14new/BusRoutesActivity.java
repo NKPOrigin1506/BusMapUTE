@@ -32,7 +32,7 @@ public class BusRoutesActivity extends AppCompatActivity {
         mListBusStop = getmListBusStop();
         mListBusRoute = new ArrayList<>(mListBusStop.keySet());
 
-        BusRouteAdapter busRouteAdapter = new BusRouteAdapter(mListBusRoute,mListBusStop);
+        busRouteAdapter = new BusRouteAdapter(mListBusRoute,mListBusStop);
         expandableListView.setAdapter(busRouteAdapter);
     }
 
@@ -291,10 +291,39 @@ public class BusRoutesActivity extends AppCompatActivity {
         busStop4.add(new BusStop(44,"Bitis"));
         busStop4.add(new BusStop(45,"Ben Xe An Suong"));
 
+        // Bus Route 53 (Tuyen xe so 53)
+        List<BusStop> busStop53 = new ArrayList<>();
+        busStop53.add(new BusStop(1,"Le Hong Phong"));
+        busStop53.add(new BusStop(2,"Nha Sach Minh Khai"));
+        busStop53.add(new BusStop(3,"Tran Hung Dao"));
+        busStop53.add(new BusStop(4,"Rap Tran Hung Dao"));
+        busStop53.add(new BusStop(5,"KTX Tran Hung Dao"));
+        busStop53.add(new BusStop(6,"Nguyen Kim"));
+        busStop53.add(new BusStop(7,"Tram Trung Chuyen Tren Duong Ham Nghi"));
+        busStop53.add(new BusStop(8,"Ben Bach Dang"));
+        busStop53.add(new BusStop(9,"Nguyen Huu Canh"));
+        busStop53.add(new BusStop(10,"Cau Den"));
+        busStop53.add(new BusStop(11,"Khu QLGTDT So 2"));
+        busStop53.add(new BusStop(12,"Dau Duong Le Van Chi"));
+        busStop53.add(new BusStop(13,"Dai Hoc Ngan Hang"));
+        busStop53.add(new BusStop(14,"Vietcombank"));
+        busStop53.add(new BusStop(15,"Cau Vuot Tram 2"));
+        busStop53.add(new BusStop(16,"Suoi Tien"));
+        busStop53.add(new BusStop(17,"Vanh Dai DHQG TPHCM"));
+        busStop53.add(new BusStop(18,"Ben Xe Buyt Khu A DHQG"));
+        busStop53.add(new BusStop(19,"Nha Van Hoa Sinh Vien"));
+        busStop53.add(new BusStop(20,"Dai Hoc Quoc Te"));
+        busStop53.add(new BusStop(21,"Ho Da"));
+        busStop53.add(new BusStop(22,"Nha Khach DHQG"));
+        busStop53.add(new BusStop(23,"Vien Tai Nguyen Moi Truong"));
+        busStop53.add(new BusStop(24,"KTX Khu B DHQG"));
+        busStop53.add(new BusStop(25,"Ben Xe Buyt DH Quoc Gia"));
+
         listMap.put(busRoute8, busStop8);
         listMap.put(busRoute104, busStop104);
         listMap.put(busRoute56, busStop56);
         listMap.put(busRoute4, busStop4);
+        listMap.put(busRoute53, busStop53);
 
         return listMap;
     }
