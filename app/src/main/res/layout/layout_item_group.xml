@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/textViewBusRoute"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="HardcodedText"
-    android:text="Tuyen xe so 8"
-    android:textSize="26sp"
-    android:textColor="@color/neon_green"
-    android:textStyle="bold"
-    android:layout_margin="5dp"
-    android:padding="40dp"/>
+    android:orientation="horizontal"
+    android:padding="40dp">
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_bus_24"/>
+    <TextView
+        android:id="@+id/textViewBusRoute"
+        android:maxWidth="280dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="HardcodedText"
+        android:text="Tuyen xe so 8"
+        android:textSize="26sp"
+        android:textColor="@color/neon_green"
+        android:textStyle="bold"
+        android:layout_margin="5dp"/>
+</LinearLayout>

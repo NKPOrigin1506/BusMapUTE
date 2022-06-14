@@ -4,18 +4,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class BusRouteAdapter extends BaseExpandableListAdapter {
+public class BusRouteAdapter extends BaseExpandableListAdapter implements Filterable {
 
     private List<BusRoute> busRoutesList;
+    private List<BusRoute> busRoutesListOld;
     private Map<BusRoute, List<BusStop>> busStopList;
 
     public BusRouteAdapter(List<BusRoute> busRoutesList, Map<BusRoute, List<BusStop>> busStopList) {
         this.busRoutesList = busRoutesList;
+        this.busRoutesListOld = busRoutesList;
         this.busStopList = busStopList;
     }
 
@@ -91,5 +96,36 @@ public class BusRouteAdapter extends BaseExpandableListAdapter {
     @Override
     public boolean isChildSelectable(int i, int i1) {
         return true;
+    }
+
+    @Override
+    public Filter getFilter() {
+
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String strSearch = charSequence.toString();
+                if (strSearch.isEmpty()){
+                    busRoutesList = busRoutesListOld;
+                }else{
+                    List<BusRoute> list = new ArrayList<>();
+                    for(BusRoute busRoute : busRoutesList) {
+                        if (busRoute.getBusRoute().toLowerCase().contains(strSearch.toLowerCase())){
+                            list.add(busRoute);
+                        }
+                    }
+                    busRoutesList = list;
+                }
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = busRoutesList;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                busRoutesList = (List<BusRoute>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 }

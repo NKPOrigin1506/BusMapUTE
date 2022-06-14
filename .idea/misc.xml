@@ -8,6 +8,7 @@
         <entry key="..\:/Users/phuon/Desktop/Learning Materials/Android Mobile Programming/Assignments/BusMapUTE_14New/app/src/main/res/drawable/ic_bus.xml" value="0.169" />
         <entry key="..\:/Users/phuon/Desktop/Learning Materials/Android Mobile Programming/Assignments/BusMapUTE_14New/app/src/main/res/drawable/ic_bus_2.xml" value="0.1295" />
         <entry key="..\:/Users/phuon/Desktop/Learning Materials/Android Mobile Programming/Assignments/BusMapUTE_14New/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/phuon/Desktop/Learning Materials/Android Mobile Programming/Assignments/BusMapUTE_14New/app/src/main/res/drawable/ic_search.xml" value="0.1495" />
         <entry key="..\:/Users/phuon/Desktop/Learning Materials/Android Mobile Programming/Assignments/BusMapUTE_14New/app/src/main/res/drawable/round_button.xml" value="0.1555" />
         <entry key="..\:/Users/phuon/Desktop/Learning Materials/Android Mobile Programming/Assignments/BusMapUTE_14New/app/src/main/res/drawable/rounded_button.xml" value="0.214" />
         <entry key="..\:/Users/phuon/Desktop/Learning Materials/Android Mobile Programming/Assignments/BusMapUTE_14New/app/src/main/res/drawable/rounded_corner.xml" value="0.131" />
@@ -24,8 +25,10 @@
         <entry key="..\:/Users/phuon/Desktop/Learning Materials/Android Mobile Programming/Assignments/BusMapUTE_14New/app/src/main/res/layout/fragment_home.xml" value="0.16944444444444445" />
         <entry key="..\:/Users/phuon/Desktop/Learning Materials/Android Mobile Programming/Assignments/BusMapUTE_14New/app/src/main/res/layout/fragment_map.xml" value="0.16944444444444445" />
         <entry key="..\:/Users/phuon/Desktop/Learning Materials/Android Mobile Programming/Assignments/BusMapUTE_14New/app/src/main/res/layout/fragment_search.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/phuon/Desktop/Learning Materials/Android Mobile Programming/Assignments/BusMapUTE_14New/app/src/main/res/layout/layout_item.xml" value="0.16944444444444445" />
         <entry key="..\:/Users/phuon/Desktop/Learning Materials/Android Mobile Programming/Assignments/BusMapUTE_14New/app/src/main/res/layout/layout_item_group.xml" value="0.16944444444444445" />
         <entry key="..\:/Users/phuon/Desktop/Learning Materials/Android Mobile Programming/Assignments/BusMapUTE_14New/app/src/main/res/menu/nav_menu.xml" value="0.14722222222222223" />
+        <entry key="..\:/Users/phuon/Desktop/Learning Materials/Android Mobile Programming/Assignments/BusMapUTE_14New/app/src/main/res/menu/search_route_menu.xml" value="0.1375" />
         <entry key="..\:/Users/phuon/Desktop/Learning Materials/Android Mobile Programming/Assignments/BusMapUTE_14New/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1235" />
         <entry key="..\:/Users/phuon/Desktop/Learning Materials/Android Mobile Programming/Assignments/BusMapUTE_14New/app/src/main/res/mipmap-anydpi-v26/ic_launcher_busmap.xml" value="0.1235" />
       </map>

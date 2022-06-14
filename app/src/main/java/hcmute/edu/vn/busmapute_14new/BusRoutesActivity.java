@@ -1,11 +1,16 @@
 package hcmute.edu.vn.busmapute_14new;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ExpandableListView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -14,10 +19,11 @@ import java.util.Map;
 
 public class BusRoutesActivity extends AppCompatActivity {
 
-    private ExpandableListView expandableListView;
-    private List<BusRoute> mListBusRoute;
-    private Map<BusRoute, List<BusStop>> mListBusStop;
-    private BusRouteAdapter busRouteAdapter;
+    SearchView searchRoute;
+    ExpandableListView expandableListView;
+    List<BusRoute> mListBusRoute;
+    Map<BusRoute, List<BusStop>> mListBusStop;
+    BusRouteAdapter busRouteAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -326,6 +332,42 @@ public class BusRoutesActivity extends AppCompatActivity {
         listMap.put(busRoute53, busStop53);
 
         return listMap;
+    }
+
+    // Inflate the menu to the Bus Route Layout:
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        getMenuInflater().inflate(R.menu.search_route_menu, menu);
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        searchRoute = (SearchView) menu.findItem(R.id.search_route).getActionView();
+        searchRoute.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchRoute.setMaxWidth(Integer.MAX_VALUE);
+
+        searchRoute.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                busRouteAdapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                busRouteAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+        return true;
+    }
+
+    // Handle the search view when back button is pressed
+    @Override
+    public void onBackPressed() {
+        if(!searchRoute.isIconified()){
+            searchRoute.setIconified(true);
+            return;
+        }
+        super.onBackPressed();
     }
 
     // this event will enable the back function to the button on press
