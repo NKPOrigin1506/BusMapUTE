@@ -12,6 +12,8 @@ import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.Objects;
+
 public class MenuActivity extends AppCompatActivity {
 
     boolean showContent = false;
@@ -19,15 +21,20 @@ public class MenuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Start the splash screen before the MenuActivity
         SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        getSupportActionBar().setTitle("Menu");
+
+        // Set the title for the action bar:
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Menu");
+
+        // Disable Night mode:
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
-        maps = (Button) findViewById(R.id.btnMap);
-        about = (Button) findViewById(R.id.btnAbout);
-        exit = (Button) findViewById(R.id.btnExit);
+        maps = findViewById(R.id.btnMap);
+        about = findViewById(R.id.btnAbout);
+        exit = findViewById(R.id.btnExit);
 
         // Keep splash screen for longer time:
         final View content = findViewById(android.R.id.content);
@@ -35,7 +42,7 @@ public class MenuActivity extends AppCompatActivity {
         content.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
             @Override
             public boolean onPreDraw() {
-                if(showContent){
+                if (showContent) {
                     content.getViewTreeObserver().removeOnPreDrawListener(this);
                 }
                 // a method to alter the showContent boolean
@@ -44,21 +51,24 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+        // click listener for 'Go to Map' button
         maps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MenuActivity.this,MainActivity.class);
+                Intent i = new Intent(MenuActivity.this, MainActivity.class);
                 startActivity(i);
             }
         });
 
+        // Click listener for 'About' button
         about.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"A Mobile App Project created by Group 14\nNguyen Kha Phuong - 18110039\nPham Nguyen Hoang Duy - 18110008",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "A Mobile App Project created by Group 14\nNguyen Kha Phuong - 18110039\nPham Nguyen Hoang Duy - 18110008", Toast.LENGTH_LONG).show();
             }
         });
 
+        // Click listener for 'Exit' button
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +77,7 @@ public class MenuActivity extends AppCompatActivity {
         });
     }
 
+    // A method to handle the time delay for the splash screen:
     private void dismissSplashScreen() {
         // handler
         final Handler handler = new Handler();

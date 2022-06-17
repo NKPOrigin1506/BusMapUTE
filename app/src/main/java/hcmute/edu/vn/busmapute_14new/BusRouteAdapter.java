@@ -15,8 +15,8 @@ import java.util.Map;
 public class BusRouteAdapter extends BaseExpandableListAdapter implements Filterable {
 
     private List<BusRoute> busRoutesList;
-    private List<BusRoute> busRoutesListOld;
-    private Map<BusRoute, List<BusStop>> busStopList;
+    private final List<BusRoute> busRoutesListOld;
+    private final Map<BusRoute, List<BusStop>> busStopList;
 
     public BusRouteAdapter(List<BusRoute> busRoutesList, Map<BusRoute, List<BusStop>> busStopList) {
         this.busRoutesList = busRoutesList;
@@ -26,7 +26,7 @@ public class BusRouteAdapter extends BaseExpandableListAdapter implements Filter
 
     @Override
     public int getGroupCount() {
-        if (busRoutesList != null){
+        if (busRoutesList != null) {
             return busRoutesList.size();
         }
         return 0;
@@ -34,7 +34,7 @@ public class BusRouteAdapter extends BaseExpandableListAdapter implements Filter
 
     @Override
     public int getChildrenCount(int i) {
-        if (busRoutesList != null  && busStopList != null){
+        if (busRoutesList != null && busStopList != null) {
             return busStopList.get(busRoutesList.get(i)).size();
         }
         return 0;
@@ -69,8 +69,8 @@ public class BusRouteAdapter extends BaseExpandableListAdapter implements Filter
 
     @Override
     public View getGroupView(int i, boolean b, View view, ViewGroup viewGroup) {
-        if (view == null){
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_item_group,viewGroup,false);
+        if (view == null) {
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_item_group, viewGroup, false);
         }
 
         TextView tvBusRoute = view.findViewById(R.id.textViewBusRoute);
@@ -82,8 +82,8 @@ public class BusRouteAdapter extends BaseExpandableListAdapter implements Filter
 
     @Override
     public View getChildView(int i, int i1, boolean b, View view, ViewGroup viewGroup) {
-        if (view == null){
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_item,viewGroup,false);
+        if (view == null) {
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_item, viewGroup, false);
         }
 
         TextView tvBusStop = view.findViewById(R.id.textViewBusStop);
@@ -105,12 +105,12 @@ public class BusRouteAdapter extends BaseExpandableListAdapter implements Filter
             @Override
             protected FilterResults performFiltering(CharSequence charSequence) {
                 String strSearch = charSequence.toString();
-                if (strSearch.isEmpty()){
+                if (strSearch.isEmpty()) {
                     busRoutesList = busRoutesListOld;
-                }else{
+                } else {
                     List<BusRoute> list = new ArrayList<>();
-                    for(BusRoute busRoute : busRoutesList) {
-                        if (busRoute.getBusRoute().toLowerCase().contains(strSearch.toLowerCase())){
+                    for (BusRoute busRoute : busRoutesList) {
+                        if (busRoute.getBusRoute().toLowerCase().contains(strSearch.toLowerCase())) {
                             list.add(busRoute);
                         }
                     }

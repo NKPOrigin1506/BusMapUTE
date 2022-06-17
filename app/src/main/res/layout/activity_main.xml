@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <androidx.cardview.widget.CardView
@@ -28,15 +28,15 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="685dp"
-        android:minHeight="600dp"
-        android:layout_below="@id/cardView"/>
+        android:layout_below="@id/cardView"
+        android:minHeight="600dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/map"
-        android:orientation="horizontal"
         android:background="@color/white"
+        android:orientation="horizontal"
         android:padding="5dp"
         tools:ignore="HardcodedText">
 
@@ -44,8 +44,8 @@
             android:id="@+id/btnBusRoutes"
             android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.0"
             android:layout_marginEnd="5dp"
+            android:layout_weight="1.0"
             android:background="@drawable/rounded_corner_button"
             android:text="Bus Routes"
             android:textColor="@color/black" />
@@ -54,8 +54,8 @@
             android:id="@+id/btnSearchLocation"
             android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.0"
             android:layout_marginStart="5dp"
+            android:layout_weight="1.0"
             android:background="@drawable/rounded_corner_button"
             android:text="Search Location"
             android:textColor="@color/black" />

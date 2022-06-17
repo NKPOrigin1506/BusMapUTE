@@ -5,10 +5,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
@@ -49,8 +47,8 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
-        routes = (Button) findViewById(R.id.btnBusRoutes);
-        search = (Button) findViewById(R.id.btnSearchLocation);
+        routes = findViewById(R.id.btnBusRoutes);
+        search = findViewById(R.id.btnSearchLocation);
 
         // click listener for 'Bus Routes' button:
         routes.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +68,7 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
+        // Initialize Places to call the map from the API to the MainActivity
         if (!Places.isInitialized())
             Places.initialize(getApplicationContext(), "AIzaSyAk2bxKJMlHto5PCM3Tputog2N4-gH1Gok");
 
@@ -82,6 +81,7 @@ public class MainActivity extends FragmentActivity {
         // Initialize location client:
         client = LocationServices.getFusedLocationProviderClient(MainActivity.this);
 
+        // Initialize the AutoCompleteSupportFragment
         AutocompleteSupportFragment autocompleteSupportFragment = (AutocompleteSupportFragment)
                 getSupportFragmentManager().findFragmentById(R.id.autoComplete);
 
@@ -115,6 +115,7 @@ public class MainActivity extends FragmentActivity {
 
     }
 
+    // A method to get the current location data:
     private void getCurrentLocation() {
         if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -148,9 +149,9 @@ public class MainActivity extends FragmentActivity {
                                 return;
                             }
                             googleMap.setMyLocationEnabled(true);
-                            LatLng latLng = new LatLng(location.getLatitude(),location.getLongitude());
+                            LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
                             MarkerOptions markerOptions = new MarkerOptions().position(latLng).title("You are here");
-                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,20));
+                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 20));
                             googleMap.addMarker(markerOptions);
                         }
                     });
@@ -162,8 +163,8 @@ public class MainActivity extends FragmentActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == 44){
-            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+        if (requestCode == 44) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getCurrentLocation();
             }
         }
