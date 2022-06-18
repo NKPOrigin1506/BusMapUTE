@@ -4,7 +4,6 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ExpandableListView;
 
@@ -33,7 +32,7 @@ public class BusRoutesActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Bus Routes");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        expandableListView = (ExpandableListView) findViewById(R.id.listViewBusRoutes);
+        expandableListView = findViewById(R.id.listViewBusRoutes);
 
         mListBusStop = getmListBusStop();
         mListBusRoute = new ArrayList<>(mListBusStop.keySet());
