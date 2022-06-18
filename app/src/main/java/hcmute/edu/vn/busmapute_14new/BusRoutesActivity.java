@@ -50,8 +50,9 @@ public class BusRoutesActivity extends AppCompatActivity {
         BusRoute busRoute56 = new BusRoute(56, "Bus Route 56");
         BusRoute busRoute4 = new BusRoute(4, "Bus Route 4");
         BusRoute busRoute53 = new BusRoute(53, "Bus Route 53");
-        BusRoute busRoute41 = new BusRoute(53, "Bus Route 41");
-        BusRoute busRoute32 = new BusRoute(53, "Bus Route 32");
+        BusRoute busRoute41 = new BusRoute(41, "Bus Route 41");
+        BusRoute busRoute32 = new BusRoute(32, "Bus Route 32");
+        BusRoute busRoute16 = new BusRoute(16, "Bus Route 16");
 
         // Bus Route 8 (Tuyen xe so 8)
         List<BusStop> busStop8 = new ArrayList<>();
@@ -453,6 +454,49 @@ public class BusRoutesActivity extends AppCompatActivity {
         busStop32.add(new BusStop(69, "Ngoc Lan"));
         busStop32.add(new BusStop(70, "Ben Xe Nga Tu Ga"));
 
+        // Bus Route 16 (Tuyen xe so 16)
+        List<BusStop> busStop16 = new ArrayList<>();
+        busStop16.add(new BusStop(1, "Ben Xe Buyt Cho Lon B"));
+        busStop16.add(new BusStop(2, "Cay Mai"));
+        busStop16.add(new BusStop(3, "Lo Sieu"));
+        busStop16.add(new BusStop(4, "Cay Go"));
+        busStop16.add(new BusStop(5, "Tan Hoa"));
+        busStop16.add(new BusStop(6, "Cau Ong Buong"));
+        busStop16.add(new BusStop(7, "CoopMart Phu Lam"));
+        busStop16.add(new BusStop(8, "Cho Phu Lam"));
+        busStop16.add(new BusStop(9, "Truong Tieu Hoc Truong Cong Dinh"));
+        busStop16.add(new BusStop(10, "Cho Tan Hoa Dong"));
+        busStop16.add(new BusStop(11, "Ap Chien Luoc"));
+        busStop16.add(new BusStop(12, "Phuong Binh Tri Dong"));
+        busStop16.add(new BusStop(13, "Ao Ca Cay Bang"));
+        busStop16.add(new BusStop(14, "My Hao"));
+        busStop16.add(new BusStop(15, "Tan Khai"));
+        busStop16.add(new BusStop(16, "Le Thai"));
+        busStop16.add(new BusStop(17, "Lang Nuong Tay Nguyen"));
+        busStop16.add(new BusStop(18, "Cho Binh Tri Dong Cu"));
+        busStop16.add(new BusStop(19, "Quan Cau Xanh"));
+        busStop16.add(new BusStop(20, "Dat Moi"));
+        busStop16.add(new BusStop(21, "Truong Tieu Hoc Binh Tri 1"));
+        busStop16.add(new BusStop(22, "Huong Lo 2"));
+        busStop16.add(new BusStop(23, "Phong Tiep Dan"));
+        busStop16.add(new BusStop(24, "Cong Ty Dai Cang Phat"));
+        busStop16.add(new BusStop(25, "Nga 3 Ao Doi"));
+        busStop16.add(new BusStop(26, "Ma Lo"));
+        busStop16.add(new BusStop(27, "Cau Kinh Moi"));
+        busStop16.add(new BusStop(28, "Uy Ban Phuong Binh Hung Hoa"));
+        busStop16.add(new BusStop(29, "Nghia Trang Binh Hung Hoa"));
+        busStop16.add(new BusStop(30, "Tram Binh Long"));
+        busStop16.add(new BusStop(31, "Truong Tieu Hoc Tan Quy"));
+        busStop16.add(new BusStop(32, "Sieu Thi Aeon"));
+        busStop16.add(new BusStop(33, "Cho Son Ky"));
+        busStop16.add(new BusStop(34, "Tram Bo Bao Tan Thang"));
+        busStop16.add(new BusStop(35, "Nguyen Huu Tien"));
+        busStop16.add(new BusStop(36, "Le Trong Tan"));
+        busStop16.add(new BusStop(37, "Trung Tam Van Hoa Quan Tan Phu"));
+        busStop16.add(new BusStop(38, "Luu Chi Hieu"));
+        busStop16.add(new BusStop(39, "Truong Chinh"));
+        busStop16.add(new BusStop(40, "Ben Xe Buyt Tan Phu"));
+
         listMap.put(busRoute8, busStop8);
         listMap.put(busRoute104, busStop104);
         listMap.put(busRoute56, busStop56);
@@ -460,6 +504,7 @@ public class BusRoutesActivity extends AppCompatActivity {
         listMap.put(busRoute53, busStop53);
         listMap.put(busRoute41, busStop41);
         listMap.put(busRoute32, busStop32);
+        listMap.put(busRoute16, busStop16);
 
         return listMap;
     }
